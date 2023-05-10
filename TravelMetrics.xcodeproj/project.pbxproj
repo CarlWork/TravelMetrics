@@ -14,6 +14,14 @@
 		AA6EF7B52A0AFDED00C7F15E /* TravelMetrics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7B32A0AFDED00C7F15E /* TravelMetrics.xcdatamodeld */; };
 		AA6EF7B72A0AFDEE00C7F15E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA6EF7B62A0AFDEE00C7F15E /* Assets.xcassets */; };
 		AA6EF7BA2A0AFDEE00C7F15E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA6EF7B82A0AFDEE00C7F15E /* LaunchScreen.storyboard */; };
+		AA6EF7C22A0AFE2800C7F15E /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7C12A0AFE2800C7F15E /* CurrencyViewController.swift */; };
+		AA6EF7C42A0AFE4A00C7F15E /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7C32A0AFE4A00C7F15E /* DistanceViewController.swift */; };
+		AA6EF7C62A0AFE5B00C7F15E /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7C52A0AFE5B00C7F15E /* TemperatureViewController.swift */; };
+		AA6EF7C82A0AFE7200C7F15E /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7C72A0AFE7200C7F15E /* WeightViewController.swift */; };
+		AA6EF7CA2A0AFE8900C7F15E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7C92A0AFE8900C7F15E /* Currency.swift */; };
+		AA6EF7CC2A0AFEA300C7F15E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7CB2A0AFEA300C7F15E /* NetworkManager.swift */; };
+		AA6EF7CE2A0AFEC600C7F15E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7CD2A0AFEC600C7F15E /* TabBarController.swift */; };
+		AA6EF7D02A0B2E5D00C7F15E /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6EF7CF2A0B2E5D00C7F15E /* ConversionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		AA6EF7B62A0AFDEE00C7F15E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA6EF7B92A0AFDEE00C7F15E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA6EF7BB2A0AFDEE00C7F15E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA6EF7C12A0AFE2800C7F15E /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		AA6EF7C32A0AFE4A00C7F15E /* DistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
+		AA6EF7C52A0AFE5B00C7F15E /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		AA6EF7C72A0AFE7200C7F15E /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
+		AA6EF7C92A0AFE8900C7F15E /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		AA6EF7CB2A0AFEA300C7F15E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AA6EF7CD2A0AFEC600C7F15E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AA6EF7CF2A0B2E5D00C7F15E /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,14 @@
 		AA6EF79E2A0AFDED00C7F15E = {
 			isa = PBXGroup;
 			children = (
+				AA6EF7C12A0AFE2800C7F15E /* CurrencyViewController.swift */,
+				AA6EF7C32A0AFE4A00C7F15E /* DistanceViewController.swift */,
+				AA6EF7C52A0AFE5B00C7F15E /* TemperatureViewController.swift */,
+				AA6EF7C72A0AFE7200C7F15E /* WeightViewController.swift */,
+				AA6EF7C92A0AFE8900C7F15E /* Currency.swift */,
+				AA6EF7CB2A0AFEA300C7F15E /* NetworkManager.swift */,
+				AA6EF7CD2A0AFEC600C7F15E /* TabBarController.swift */,
+				AA6EF7CF2A0B2E5D00C7F15E /* ConversionViewController.swift */,
 				AA6EF7A92A0AFDED00C7F15E /* TravelMetrics */,
 				AA6EF7A82A0AFDED00C7F15E /* Products */,
 			);
@@ -141,10 +165,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA6EF7CA2A0AFE8900C7F15E /* Currency.swift in Sources */,
 				AA6EF7AF2A0AFDED00C7F15E /* ViewController.swift in Sources */,
+				AA6EF7CE2A0AFEC600C7F15E /* TabBarController.swift in Sources */,
+				AA6EF7CC2A0AFEA300C7F15E /* NetworkManager.swift in Sources */,
 				AA6EF7AB2A0AFDED00C7F15E /* AppDelegate.swift in Sources */,
 				AA6EF7AD2A0AFDED00C7F15E /* SceneDelegate.swift in Sources */,
 				AA6EF7B52A0AFDED00C7F15E /* TravelMetrics.xcdatamodeld in Sources */,
+				AA6EF7C82A0AFE7200C7F15E /* WeightViewController.swift in Sources */,
+				AA6EF7C22A0AFE2800C7F15E /* CurrencyViewController.swift in Sources */,
+				AA6EF7C62A0AFE5B00C7F15E /* TemperatureViewController.swift in Sources */,
+				AA6EF7D02A0B2E5D00C7F15E /* ConversionViewController.swift in Sources */,
+				AA6EF7C42A0AFE4A00C7F15E /* DistanceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
