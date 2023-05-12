@@ -47,20 +47,28 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
+    @objc func doneButtonTapped() {
+        view.endEditing(true)
+    }
+    
+    
     func configureConvertButton() {
         convertButton.translatesAutoresizingMaskIntoConstraints = false
         convertButton.setTitle("Convert", for: .normal)
         convertButton.addTarget(self, action: #selector(convertButtonTapped), for: .touchUpInside)
-        convertButton.backgroundColor = UIColor.systemBlue
-        convertButton.setTitleColor(UIColor.white, for: .normal)
+        convertButton.backgroundColor = UIColor.customElementColor
+        convertButton.setTitleColor(UIColor.customTextColor, for: .normal)
         convertButton.layer.cornerRadius = 8
         convertButton.clipsToBounds = true
         view.addSubview(convertButton)
         
         NSLayoutConstraint.activate([
             convertButton.topAnchor.constraint(equalTo: targetCurrencyPicker.bottomAnchor, constant: 16),
-            convertButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            convertButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            convertButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            convertButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
+        
     }
     
     func loadAvailableSymbols() {
@@ -117,7 +125,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         view.addGestureRecognizer(tap)
         
         // background color
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.customBackgroundColor
         
         // Configure and add subviews
         configureInputAmountTextField()
@@ -143,9 +151,23 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Configure inputAmountTextField properties
         inputAmountTextField.placeholder = "Enter amount"
         inputAmountTextField.borderStyle = .roundedRect
+        inputAmountTextField.backgroundColor = UIColor.customElementColor
+            inputAmountTextField.textColor = UIColor.customTextColor
+            inputAmountTextField.keyboardAppearance = .dark
+            inputAmountTextField.attributedPlaceholder = NSAttributedString(string: "Enter amount", attributes: [NSAttributedString.Key.foregroundColor: UIColor.customTextColor])
         inputAmountTextField.keyboardType = .decimalPad
         inputAmountTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(inputAmountTextField)
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        inputAmountTextField.inputAccessoryView = toolbar
+        
         
         // Add Auto Layout constraints
         NSLayoutConstraint.activate([
@@ -184,6 +206,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func configureCurrencyLabels() {
         // Configure sourceCurrencyLabel properties
         sourceCurrencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        sourceCurrencyLabel.textColor = UIColor.customTextColor
         if !currencies.isEmpty {
             sourceCurrencyLabel.text = currencies[0].name
         }
@@ -191,6 +214,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Configure targetCurrencyLabel properties
         targetCurrencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        targetCurrencyLabel.textColor = UIColor.customTextColor
         if !currencies.isEmpty {
             targetCurrencyLabel.text = currencies[0].name
         }
@@ -209,6 +233,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func configureResultLabel() {
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.textColor = UIColor.customTextColor // White text
         resultLabel.textAlignment = .center
         resultLabel.numberOfLines = 0
         resultLabel.font = UIFont.systemFont(ofSize: 24)
@@ -220,4 +245,10 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             resultLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
     }
+}
+
+extension UIColor {
+    static let customBackgroundColor: UIColor = .darkGray
+    static let customTextColor: UIColor = .white
+    static let customElementColor: UIColor = .lightGray
 }
