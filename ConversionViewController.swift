@@ -216,8 +216,6 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     
     func configureButtons() {
-        // Configure the buttons here...
-        // ... for example:
         [weightButton1, weightButton2, temperatureButton1, temperatureButton2, distanceButton1, distanceButton2].forEach {
             $0.setTitle("Choose Unit", for: .normal)
             
@@ -278,8 +276,6 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
             verticalStackView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20),
             verticalStackView.topAnchor.constraint(equalTo: guide.topAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
-            
-            // These constraints are important to make the scrollView's content size adapt to the size of the verticalStackView
             verticalStackView.widthAnchor.constraint(equalTo: frameGuide.widthAnchor, constant: -40),
         ])
         
@@ -334,10 +330,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Get the new text
+        // Get new text
         let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
         
-        // Convert the new text to a number
+        // Convert new text to a number
         if let newValue = Double(newText) {
             if textField == weightField1 {
                 updateWeightConversion(newValue, from: weightUnit1, to: weightUnit2, updateField: weightField2)
@@ -352,7 +348,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func updateWeightConversion(_ value: Double, from: WeightUnit, to: WeightUnit, updateField: UITextField) {
         let inputValue = Measurement(value: value, unit: from.unit)
         let outputValue = inputValue.converted(to: to.unit)
-        let roundedOutputValue = Double(round(100 * outputValue.value) / 100)  // Round to two decimal places
+        let roundedOutputValue = Double(round(100 * outputValue.value) / 100)
         updateField.text = "\(roundedOutputValue)"
     }
     
@@ -360,14 +356,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func updateTemperatureConversion(_ value: Double = 0, from: TemperatureUnit, to: TemperatureUnit, updateField: UITextField) {
         let conversionService = ConversionService()
         let result = conversionService.convert(value, from: from, to: to)
-        let roundedResult = Double(round(100 * result) / 100)  // Round to two decimal places
+        let roundedResult = Double(round(100 * result) / 100)
         updateField.text = String(roundedResult)
     }
     
     func updateDistanceConversion(_ value: Double = 0, from: DistanceUnit, to: DistanceUnit, updateField: UITextField) {
         let conversionService = ConversionService()
         let result = conversionService.convert(value, from: from, to: to)
-        let roundedResult = Double(round(100 * result) / 100)  // Round to two decimal places
+        let roundedResult = Double(round(100 * result) / 100) 
         updateField.text = String(roundedResult)
     }
     

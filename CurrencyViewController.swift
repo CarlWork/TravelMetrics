@@ -9,8 +9,6 @@ import UIKit
 
 class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
-    
     var currencies: [Currency] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -83,7 +81,6 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @objc func convertButtonTapped() {
-        // Get the selected currencies
         let sourceCurrency = currencies[sourceCurrencyPicker.selectedRow(inComponent: 0)].code
         let targetCurrency = currencies[targetCurrencyPicker.selectedRow(inComponent: 0)].code
         
@@ -123,10 +120,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
-        // background color
         view.backgroundColor = UIColor.customBackgroundColor
-        
         // Configure and add subviews
         configureInputAmountTextField()
         configureSourceCurrencyPicker()
@@ -145,10 +139,7 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         loadAvailableSymbols()
     }
     
-    
-    
     func configureInputAmountTextField() {
-        // Configure inputAmountTextField properties
         inputAmountTextField.placeholder = "Enter amount"
         inputAmountTextField.borderStyle = .roundedRect
         inputAmountTextField.backgroundColor = UIColor.customElementColor
@@ -168,8 +159,6 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         toolbar.setItems([flexSpace, doneButton], animated: false)
         inputAmountTextField.inputAccessoryView = toolbar
         
-        
-        // Add Auto Layout constraints
         NSLayoutConstraint.activate([
             inputAmountTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             inputAmountTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -204,7 +193,6 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func configureCurrencyLabels() {
-        // Configure sourceCurrencyLabel properties
         sourceCurrencyLabel.translatesAutoresizingMaskIntoConstraints = false
         sourceCurrencyLabel.textColor = UIColor.customTextColor
         if !currencies.isEmpty {
@@ -212,7 +200,6 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         view.addSubview(sourceCurrencyLabel)
         
-        // Configure targetCurrencyLabel properties
         targetCurrencyLabel.translatesAutoresizingMaskIntoConstraints = false
         targetCurrencyLabel.textColor = UIColor.customTextColor
         if !currencies.isEmpty {
@@ -220,7 +207,6 @@ class CurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         view.addSubview(targetCurrencyLabel)
         
-        // Add Auto Layout constraints
         NSLayoutConstraint.activate([
             sourceCurrencyLabel.bottomAnchor.constraint(equalTo: sourceCurrencyPicker.topAnchor, constant: -1),
             sourceCurrencyLabel.centerXAnchor.constraint(equalTo: sourceCurrencyPicker.centerXAnchor),

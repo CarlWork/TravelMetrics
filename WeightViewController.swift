@@ -16,7 +16,6 @@ class WeightViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view.backgroundColor = .white
-        // Configure and add subviews
         configureInputWeightTextField()
         configureSegmentedControl()
         configureResultLabel()

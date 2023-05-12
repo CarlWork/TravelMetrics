@@ -13,7 +13,6 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create an instance of ConversionViewController
         let conversionViewController = ConversionViewController()
         conversionViewController.title = "Conversion"
         let conversionNavigationController = UINavigationController(rootViewController: conversionViewController)
@@ -22,10 +21,8 @@ class CustomTabBarController: UITabBarController {
         currencyViewController.title = "Currency"
         let currencyNavigationController = UINavigationController(rootViewController: currencyViewController)
         
-        // Set the view controller of the tab bar
         self.viewControllers = [conversionNavigationController, currencyNavigationController]
         
-        // Set the tab bar item
         conversionNavigationController.tabBarItem = UITabBarItem(title: "Conversion", image: UIImage(systemName: "scalemass"), tag: 0)
         currencyNavigationController.tabBarItem = UITabBarItem(title: "Currency", image: UIImage(systemName: "dollarsign.circle"), tag: 1)
         
